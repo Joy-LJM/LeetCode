@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {*} obj
+       * @param {*} classFunction
+       * @return {boolean}
+       */
+      var checkIfInstanceOf = function (obj, classFunction) {
+        if (obj === null) return false;
+        if (obj.constructor === classFunction) {
+          return true;
+        }
+        obj = Object.getPrototypeOf(obj);
+
+        return checkIfInstanceOf(obj, classFunction);
+      };
+
+      console.log(checkIfInstanceOf(new Date(), Date)); // true
+      console.log(checkIfInstanceOf(5, Number)); // true
+      class Animal {}
+      class Dog extends Animal {}
+      console.log(checkIfInstanceOf(new Dog(),Animal )); // true
+    </script>
+  </body>
+</html>

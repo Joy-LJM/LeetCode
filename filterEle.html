@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {number[]} arr
+       * @param {Function} fn
+       * @return {number[]}
+       */
+      var filter = function (arr, fn) {
+        const idx = [];
+        for (let i = 0; i < arr.length; i++) {
+          const res = fn(arr[i], i);
+          if (res) {
+            idx.push(arr[i]);
+          }
+        }
+        return idx;
+      };
+      const arr = [0, 10, 20, 30];
+      const fn = function greaterThan10(n) {
+        return n > 10;
+      };
+      const res=filter(arr,fn);
+      console.log(res);
+    </script>
+  </body>
+</html>

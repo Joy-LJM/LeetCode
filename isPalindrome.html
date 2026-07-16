@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {number} x
+       * @return {boolean}
+       */
+      var isPalindrome = function (x) {
+        // let flag = true;
+        // const arr = Array.from(x.toString());
+        // const reverseArr = arr.reverse();
+        // arr.forEach((item, idx) => {
+        //   if (item !== reverseArr[idx]) {
+        //     flag = false;
+        //   }
+        // });
+
+        // return flag;
+
+        // method2
+        if (x < 0) {
+          return false;
+        }
+
+        let num = x;
+        let reverseNum = 0;
+        while (num > 0) {
+          reverseNum = reverseNum * 10 + (num % 10);
+          num = parseInt(num / 10);
+        }
+        return x === reverseNum;
+      };
+      console.log(isPalindrome(121));
+    </script>
+  </body>
+</html>

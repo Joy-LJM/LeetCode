@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function zipWith(...args) {
+        // your code goes here
+        const iteratee = args.pop();
+
+        const mininum_length = Math.min(...args.map((arr) => arr.length));
+
+        return Array.from({ length: mininum_length }, (_, i) =>
+          iteratee(...args.map((arr) => arr[i]))
+        );
+      }
+
+      // debug your code below
+      const fun = (a, b) => a * b;
+      console.log(zipWith([1, 2], [10, 20], fun));
+    </script>
+  </body>
+</html>

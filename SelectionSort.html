@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // search for the minimum element in the unsorted part of the array and swap it with the first unsorted element 
+    function selectionSort(array){
+      for(let i=0;i<array.length-1;i++){
+        let minIdx=i;
+        for(let j=i+1;j<array.length;j++){
+          if(array[j]<array[minIdx]){
+            minIdx=j;
+          }
+        }
+        if(minIdx!==i){ // check if the minimum index is different from the current index to avoid unnecessary swaps
+          let temp=array[i];
+          array[i]=array[minIdx];
+          array[minIdx]=temp;
+        }
+      }
+      return array;
+    }
+    console.log(selectionSort([5, 3, 8, 4, 2])); // Output: [2, 3, 4, 5, 8]
+  </script>
+</body>
+</html>

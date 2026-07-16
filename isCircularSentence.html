@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {string} sentence
+       * @return {boolean}
+       */
+      // var isCircularSentence = function (sentence) {
+      //   const arr = sentence.split(" ");
+      //   let flag = false;
+      //   let isCircular=false;
+      //   if (
+      //     arr.length === 1 &&
+      //     arr[0].charAt(0) === arr[0].charAt(sentence.length - 1)
+      //   ) {
+      //     flag = true;
+      //   }
+      //   if (arr.length > 1) {
+      //     for (let i = 0; i < arr.length; i++) {
+      //       if (arr[i + 1]) {
+      //          isCircular =
+      //           arr[i].charAt(arr[i].length - 1) === arr[i + 1].charAt(0);
+      //         if (isCircular) {
+      //           flag = true;
+      //         } else {
+      //           flag = false;
+      //           break;
+      //         }
+      //       }
+      //       if (i === arr.length - 1) {
+      //           if (
+      //           arr[arr.length - 1].charAt(arr[arr.length - 1].length - 1) ===
+      //           arr[0].charAt(0) && isCircular
+      //         ) {
+      //           flag = true;
+      //         } else flag = false;
+      //       }
+      //     }
+      //   }
+      //   return flag;
+      // };
+
+      // method 2
+
+      const isCircularSentence = (s) => {
+        s = s.split(" ");
+        s.push(s[0]);// push the first element into the last index,to compare the first element with the original last element
+
+        for (let i = 0; i < s.length - 1; i++) {
+          if (s[i].at(-1) !== s[i + 1].at(0)) return false;
+        }
+        return true;
+      };
+      console.log(isCircularSentence("a a ba"));
+    </script>
+  </body>
+</html>

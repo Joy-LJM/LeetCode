@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {Array} arr
+       * @param {number} size
+       * @return {Array}
+       */
+      var chunk = function (arr, size) {
+        const res = [];
+        if (arr.length % size === 0) {
+          // for (let i = 0; i < arr.length; i++) {
+          //   res[i] = [];
+          //   if (res[i].length < size) {
+          //     res[i] = [arr[i]];
+          //   }
+          // }
+          while (arr.length > size) {
+            const beforeSize = arr.splice(0, size);
+            res.push([...beforeSize]);
+          }
+          res.push([...arr]);
+        } else if (arr.length % size === arr.length) {
+          res.push([...arr]);
+        } else {
+          // const beforeSize=arr.splice(0,size);
+          while (arr.length > size) {
+            const beforeSize = arr.splice(0, size);
+            res.push([...beforeSize]);
+          }
+          res.push([...arr]);
+        }
+        return res;
+      };
+      console.log(chunk(["5","7","2","1","0","-5"],3))
+    </script>
+  </body>
+</html>

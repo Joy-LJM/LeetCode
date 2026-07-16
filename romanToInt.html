@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //    There are six instances where subtraction is used:
+
+    // I can be placed before V (5) and X (10) to make 4 and 9.
+    // X can be placed before L (50) and C (100) to make 40 and 90.
+    // C can be placed before D (500) and M (1000) to make 400 and 900.
+    const romanToInt = function (s) {
+      const map = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000,
+      };
+      let res = 0;
+      for (let i = 0; i < s.length; i++) {
+        const num = map[s[i]];
+        if (num < map[s[i + 1]]) {
+          res -= num;
+        } else {
+          res += num;
+        }
+      }
+      return res;
+    };
+
+    console.log(romanToInt("MCMXCIV"));
+  </script>
+</html>
